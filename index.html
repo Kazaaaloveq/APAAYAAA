@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNTUUK KESAYAANGAANKUU</title>
+    <link rel="stylesheet" href="style.css">
+    <style>body {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .heart {
+        position: absolute;
+        background-color: #fc2a62;
+        width: 20px;
+        height: 20px;
+        transform: rotate(45deg);
+        opacity: 0.8;
+        animation: float 5s infinite;
+    }
+    
+    .heart:before,
+    .heart:after {
+        content: "";
+        background-color: #fc2a62;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+    
+    .heart:before {
+        top: -10px;
+        left: 0;
+    }
+    
+    .heart:after {
+        left: 10px;
+        top: 0;
+    }
+    
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }</style>
+</head>
+<body>
+    <script>var brd = document.createElement("DIV");
+        document.body.appendChild(brd);
+        const duration = 3000;
+        const cursorXOffset = 0;
+        const cursorYOffset = -5;
+        
+        function generateHeart(x, y) {
+            var heart = document.createElement("DIV");
+            heart.setAttribute('class', 'heart');
+            brd.appendChild(heart);
+            heart.style.left = x + "px";
+            heart.style.top = y + "px";
+            heart.style.animationDuration = (Math.random() * 2 + 3) + "s"; // Random duration
+            heart.style.opacity = Math.random(); // Random opacity
+            setTimeout(() => {
+                heart.remove();
+            }, duration);
+        }
+        
+        document.onmousemove = function(e) {
+            generateHeart(e.pageX + cursorXOffset, e.pageY + cursorYOffset);
+        };
+        </script>
+    <div class="container">
+        <img src="h.jpg" alt="Hehee Maapin yaa kalaau kelamaan buatnyaa" class="emotion-image">
+        <p class="expression">"HALLOOOOUUU SAYAAANGKUUU CINTAKUUUU AKUU PUNYAAAA SESUATUUU BUAT KAMUUUU"</p>
+        <a href="halbaru.html" class="button">Penceet disiniii sayaaaang</a>
+    </div>
+</body>
+</html>
